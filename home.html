@@ -43,12 +43,20 @@
         
         <div class="page" id="detail">
             <h1> Your contacts </h1>
-            <div id="contacts">
-                <p>Name</p>
-                <label for="phone">Phone Number:</label>
-                <input type="tel" id="phone" name="phone"  pattern="^05[0-9]-[0-9]{7}$" >
-            </div>
-                <button >Add</button>
+            <button onclick="showForm()"><img src="https://png.pngtree.com/png-vector/20190419/ourmid/pngtree-vector-add-icon-png-image_956621.jpg" height="100px" width="100px"></button>
+           <div id="container"></div>
+        <template id="form">
+        <div id="contact-form">
+            <label for="fname">Name:</label>
+            <input type="text" id="fname" name="fname" required><br><br>
+            
+            <label for="phone">Phone number:</label>
+            <input type="tel" id="phone" name="phone" required/><br><br>
+            <button id="save-contact" onclick="onClick(event)">Save Contact</button>
+        </div>
+        </template>
+        
+        <div id="contact-display"></div> 
             <ol>
                 <li><a href="#" data-target="home" class="nav-link">log in</a></li>
                 <li><a href="#" data-target="list" class="nav-link">sign up</a></li>
