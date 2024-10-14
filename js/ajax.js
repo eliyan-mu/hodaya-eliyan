@@ -2,7 +2,7 @@ class Fajax{
     open(method,url){
         this.method=method;
         this.url=url;
-
+        this.onload;
     }
     send(){
         server(this);
