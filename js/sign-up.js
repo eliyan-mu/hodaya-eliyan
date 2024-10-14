@@ -1,18 +1,4 @@
 
-
-
-// chekName();
-
-
-
-// function chekName(){
-//     for(let i=o; i<userArray.length; i++){
-//         if(userArray[i]==="namme"){
-//             alert("This user name exicted ,please change the Name")
-//             break;
-//         }
-//     }
-// }
 const form = document.getElementById("myForm");
 const enterUser = document.getElementById("enter-new-user");
 enterUser.addEventListener("click", signUp);
@@ -26,10 +12,11 @@ function signUp(event) {
         alert("Please fill out all fields.");
     }
 
-        const newUser = {
-            "name": name,
-            "password": password  
-        };
+    const newUser = {
+        "name": name,
+        "password": password,
+        "data":[]
+    };
         
     sendtoserver(newUser, event);
 }
@@ -41,4 +28,6 @@ function sendtoserver(newUser, event) {
     localStorage.setItem("currentUser",JSON.stringify(newUser));
     app.nav(event);
     console.log(userArray); 
+    localStorage.setItem("current-user",JSON.stringify(newUser))                                ;
+    
 }
