@@ -60,3 +60,4 @@ var contactDisplay = document.getElementById('contact-display');
                 displayContacts(currentUser.data);
             }
         };
+        
