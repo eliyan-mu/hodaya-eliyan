@@ -1,18 +1,4 @@
 
-
-
-// chekName();
-
-
-
-// function chekName(){
-//     for(let i=o; i<userArray.length; i++){
-//         if(userArray[i]==="namme"){
-//             alert("This user name exicted ,please change the Name")
-//             break;
-//         }
-//     }
-// }
 const form = document.getElementById("myForm");
 const enterUser = document.getElementById("enter-new-user");
 enterUser.addEventListener("click", signUp);
@@ -29,7 +15,8 @@ function signUp(event) {
 
     const newUser = {
         "name": name,
-        "password": password  
+        "password": password,
+        "data":[]
     };
 
     sendtoserver(newUser);
@@ -40,4 +27,6 @@ function sendtoserver(newUser) {
     userArray.push(newUser);
     localStorage.setItem("users", JSON.stringify(userArray));
     console.log(userArray); 
+    localStorage.setItem("current-user",JSON.stringify(newUser))                                ;
+    
 }
