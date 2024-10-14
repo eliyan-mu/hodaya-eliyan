@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>A Single Page Application</title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+    <main>
+        <div class="page active" id="home">
+            <h1>log in</h1>
+            <div id="existing-users">
+                <p>username:</p>
+                <input id="name"/>
+                <br/>
+                <p>password:</p>
+                <input id="password"/>
+                <button data-target="detail" id="enterlog">enter</button>
+            </div>
+            <ol>
+                <li><a href="#" data-target="home" class="nav-link">log in</a></li>
+                <li><a href="#" data-target="list" class="nav-link">sign up</a></li>
+                <!-- <li><a href="#" data-target="detail" class="nav-link">DETAIL</a></li> -->
+            </ol>
+        </div>
+        
+        <div class="page" id="list">
+            <h1>sign up</h1>
+            <form id="myForm">
+                <label for="name"> Name:</label><br>
+                <input type="text" id="new-name" name="new-name" ><br>
+                <label for="pass">Password:</label><br>
+                <input type="text" id="pass" name="pass" >
+                <button data-target="detail" id="enter-new-user">Sign up</button>
+              </form>
+            <ol>
+                <li><a href="#" data-target="home" class="nav-link">log in</a></li>
+                <li><a href="#" data-target="list" class="nav-link">sign up</a></li>
+                <!-- <li><a href="#" data-target="detail" class="nav-link">DETAIL</a></li> -->
+            </ol>
+        </div>
+        
+        <div class="page" id="detail">
+            <h1> Your contacts </h1>
+            <div id="contacts">
+                <p>Name</p>
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone"  pattern="^05[0-9]-[0-9]{7}$" >
+            </div>
+                <button >Add</button>
+            <ol>
+                <li><a href="#" data-target="home" class="nav-link">log in</a></li>
+                <li><a href="#" data-target="list" class="nav-link">sign up</a></li>
+                <li><a href="#" data-target="detail" class="nav-link">contacts</a></li>
+            </ol>
+        </div>
+        
+    </main>
+    <script src="home.js"></script>
+    <script src="./js/sign-up.js"></script>
+    <script src="login.js"></script>
+    <script src="../js/contact.js"></script>
+    <script src="../js/sign-up.js"></script>
+
+</body>
+</html>
