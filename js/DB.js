@@ -38,8 +38,54 @@
         }
         localStorage.setItem('contact',JSON.stringify(arr));
     }
+    function login(event) {
+        const savedUsers = JSON.parse(localStorage.project3);
+        console.log('savedUsers: ', savedUsers);
+    
+        let name = document.getElementById("name").value;
+    let password = document.getElementById("password").value;
+        const newUser = savedUsers.find((user)=>user.name === name && user.password === password);
+        console.log('newUser: ', newUser);
+    
+            if (!newUser) {
+                let wrongPassParagraph = document.createElement("p");
+                wrongPassParagraph.innerText = "wrong password";
+                const existingUsersDiv = document.getElementById("existing-users");
+                existingUsersDiv.appendChild(wrongPassParagraph);
+                console.log("if1")
+            }
+            else{
+                localStorage.setItem("currentUser",JSON.stringify(newUser));
+                app.nav(event)
+            }
+    
+    
+    }
 //sign-up
-
+function addNewuser(name,password){
+    const savedUsers = JSON.parse(localStorage.project3);
+        console.log('savedUsers: ', savedUsers);
+    
+        let name = document.getElementById("name").value;
+    let password = document.getElementById("password").value;
+    const newUser = savedUsers.find((user)=>user.name === name && user.password === password);
+        console.log('newUser: ', newUser);
+    
+            if (!newUser) {
+                let wrongPassParagraph = document.createElement("p");
+                wrongPassParagraph.innerText = "wrong password";
+                const existingUsersDiv = document.getElementById("existing-users");
+                existingUsersDiv.appendChild(wrongPassParagraph);
+                console.log("if1")
+            }
+            else{
+                localStorage.setItem("currentUser",JSON.stringify(newUser));
+                app.nav(event)
+            }
+    
+    
+    }
+}
     // chek if user exicted if not you have to add it 
     function addNewuser(name,password){
         if(JSON.parse(window.localStorage.getItem("users"))){
