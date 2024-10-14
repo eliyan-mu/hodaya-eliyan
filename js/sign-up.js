@@ -19,25 +19,26 @@ enterUser.addEventListener("click", signUp);
 
 function signUp(event) {
     event.preventDefault();
-    const name = document.getElementById("name").value;
+    const name = document.getElementById("new-name").value;
     const password = document.getElementById("pass").value;
 
     if (name === "" || password === "") {
         alert("Please fill out all fields.");
-        return;
     }
 
-    const newUser = {
-        "name": name,
-        "password": password  
-    };
-
-    sendtoserver(newUser);
+        const newUser = {
+            "name": name,
+            "password": password  
+        };
+        
+    sendtoserver(newUser, event);
 }
 
-function sendtoserver(newUser) {
+function sendtoserver(newUser, event) {
     const userArray = JSON.parse(localStorage.getItem("users")) || [];
     userArray.push(newUser);
-    localStorage.setItem("users", JSON.stringify(userArray));
+    localStorage.setItem("project3", JSON.stringify(userArray));
+    localStorage.setItem("currentUser",JSON.stringify(newUser));
+    app.nav(event);
     console.log(userArray); 
 }
