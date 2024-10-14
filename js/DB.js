@@ -45,8 +45,22 @@
         }
     }
 
-function getAllContact(){
-    
-}
 
-   
+   function gettAllUser(){
+   let users = JSON.parse(localStorage.getItem("users"))
+//    JSON.stringify(localStorage.setItem("users"))
+   return users
+   }
+
+   function getAllContact(){
+    let contacts=JSON.parse(localStorage.getItem("contacts"))
+    return contacts
+   }
+
+
+   function addCantactToUser(){
+    const currentUser =JSON.parse( localStorage.getItem("current-user"));
+    currentUser.
+
+
+   }
