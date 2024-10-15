@@ -14,23 +14,23 @@ const users_container = document.getElementById("existing-users");
 document.getElementById("enterlog").addEventListener("click", login)
 
 function login(event) {
+    const savedUsers = JSON.parse(localStorage.project3);
     let name = document.getElementById("name").value;
 let password = document.getElementById("password").value;
-    const onload = function(){
-        if (!newUser) {
-            let wrongPassParagraph = document.createElement("p");
-            wrongPassParagraph.innerText = "wrong password";
-            const existingUsersForm = document.getElementById("existing-users");
-            existingUsersForm.appendChild(wrongPassParagraph);
-            // wrongPassParagraph.style.display = "none";
-          
+
+const newUser = savedUsers.find((user)=>user.name === name && user.password === password);
+
+    if (!newUser) {
+        let wrongPassParagraph = document.createElement("p");
+        wrongPassParagraph.innerText = "wrong password";
+        const existingUsersDiv = document.getElementById("existing-users");
+        existingUsersDiv.appendChild(wrongPassParagraph);
+      
+    }
+    else{
+        localStorage.setItem("currentUser",JSON.stringify(newUser));//TODO
+        app.nav(event)
         }
-        else{
-            localStorage.setItem("currentUser",JSON.stringify(newUser));//TODO
-            app.nav(event)
-            // location.href =history.replaceState({}, 'Detail', '#detail');
-            // history.replaceState({}, 'Detail', '#detail');
-        }}
 }
 
 
