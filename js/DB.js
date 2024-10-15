@@ -14,7 +14,7 @@
         }
         localStorage.setItem('contact',JSON.stringify(arr));
     }
-    function login(event) {
+    function login() {
         const savedUsers = JSON.parse(localStorage.project3);
         console.log('savedUsers: ', savedUsers);
     

@@ -10,19 +10,25 @@
     <main>
         <div class="page active" id="home">
             <h1>log in</h1>
-            <div id="existing-users">
+            <!-- <div id="existing-users">
                 <p>username:</p>
                 <input id="name"/>
-                <br/>
                 <p>password:</p>
                 <input id="password"/>
                 <button data-target="detail" id="enterlog">enter</button>
-            </div>
-            <ol>
-                <li><a href="#" data-target="home" class="nav-link">log in</a></li>
-                <li><a href="#" data-target="list" class="nav-link">sign up</a></li>
+                <br><br>
+            </div> -->
+            <form id="existing-users">
+                <label for="name"> Name:</label><br>
+                <input type="text" id="name" name="new-name" ><br>
+                <label for="pass">Password:</label><br>
+                <input type="text" id="password" name="pass" >
+                <button data-target="detail" id="enterlog">Log in</button>
+              </form>
+              <br><br>
+                <!-- <li><a href="#" data-target="home" class="nav-link">log in</a></li> -->
+                <nav><a href="#" data-target="list" class="nav-link">sign up</a></nav>
                 <!-- <li><a href="#" data-target="detail" class="nav-link">DETAIL</a></li> -->
-            </ol>
         </div>
         
         <div class="page" id="list">
@@ -34,20 +40,22 @@
                 <input type="text" id="pass" name="pass" >
                 <button data-target="detail" id="enter-new-user">Sign up</button>
               </form>
-            <ol>
-                <li><a href="#" data-target="home" class="nav-link">log in</a></li>
-                <li><a href="#" data-target="list" class="nav-link">sign up</a></li>
+              <br><br>
+                <nav><a href="#" data-target="home" class="nav-link">log in</a></nav>
+                <!-- <li><a href="#" data-target="list" class="nav-link">sign up</a></li> -->
                 <!-- <li><a href="#" data-target="detail" class="nav-link">DETAIL</a></li> -->
-            </ol>
+            
         </div>
         
         <div class="page" id="detail">
-            <h1> Your contacts </h1>
-            <button onclick="showForm()"><img src="https://png.pngtree.com/png-vector/20190419/ourmid/pngtree-vector-add-icon-png-image_956621.jpg" height="100px" width="100px"></button>
-           <div id="container"></div>
-        <template id="form">
-        <div id="contact-form">
-            <label for="fname">Name:</label>
+            <div class="title">
+                <h1 id="header"> Your contacts </h1>
+                <button id="pic" onclick="showForm()"><img src="https://png.pngtree.com/png-vector/20190419/ourmid/pngtree-vector-add-icon-png-image_956621.jpg"  width=30 ></button>
+          </div> 
+          <div id="container"></div>
+            <template id="form">
+            <div id="contact-form">
+                <label for="fname">Name:</label>
             <input type="text" id="fname" name="fname" required><br><br>
             
             <label for="phone">Phone number:</label>
@@ -57,11 +65,12 @@
         </template>
         
         <div id="contact-display"></div> 
-            <ol>
-                <li><a href="#" data-target="home" class="nav-link">log in</a></li>
-                <li><a href="#" data-target="list" class="nav-link">sign up</a></li>
-                <li><a href="#" data-target="detail" class="nav-link">contacts</a></li>
-            </ol>
+                <!-- <br><br>
+                <nav><a href="#" data-target="home" class="nav-link">log in</a></nav>
+                <br><br>
+                <nav><a href="#" data-target="list" class="nav-link">sign up</a></nav> -->
+                <!-- <li><a href="#" data-target="detail" class="nav-link">contacts</a></li> -->
+            
         </div>
         
     </main>
