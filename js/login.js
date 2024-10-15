@@ -29,6 +29,7 @@ const newUser = savedUsers.find((user)=>user.name === name && user.password === 
     }
     else{
         localStorage.setItem("currentUser",JSON.stringify(newUser));//TODO
+        displayContacts();
         app.nav(event)
         }
 }

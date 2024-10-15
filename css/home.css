@@ -1,13 +1,18 @@
 .page{
     display: none;
 
+
 }
 .active.page{
     display: block;
 }
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    /* background-image: url(https://img.freepik.com/free-vector/copy-space-bokeh-spring-lights-background_52683-55649.jpg); */
+    background-color: #bbd922;
+    /* background-repeat: no-repeat; */
+    width: 100vw;
+    
     display: flex;
     justify-content: center;
     align-items: center;

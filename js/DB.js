@@ -8,6 +8,12 @@
         currentUser.data.push(obj);
         localStorage.setItem('currentUser', JSON.stringify(currentUser));
 
+        //add contact to user in project3
+        let userArray=JSON.parse(localStorage.project3);
+        let thisuser= userArray.find((p3user)=>(p3user.name===currentUser.name && p3user.password===currentUser.password));
+        thisuser.data=currentUser.data;
+        localStorage.setItem("project3", JSON.stringify(userArray));
+
 
     }
     function removecontact(num){

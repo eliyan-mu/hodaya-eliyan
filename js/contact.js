@@ -41,25 +41,5 @@ var contactDisplay = document.getElementById('contact-display');
         };
 
 
-        // window.onload = function() {
-        //     const currentUser = JSON.parse(localStorage.getItem("current-user"));
-        //     if (currentUser && currentUser.data) {
-        //         displayContacts(currentUser.data);
-        //     }
-        // };
-
-        // function addcontact(user, event){
-        //     let y = new Fajax();
-        //     y.onload = function () {
-        //         console.log("hi");
-        //         // addNewuser(name,password)
-        //         localStorage.setItem("currentUser",JSON.stringify(user));//TODO
-        //         app.nav(event)
-        //     }
-        //     y.open("POST", "my-server/api/contact")
-        //     y.send(user);
-        //     console.log('y: ', y);
-            
-        //     console.log('user: ', user);
-        // }
+     
 
