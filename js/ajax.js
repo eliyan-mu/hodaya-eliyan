@@ -2,30 +2,13 @@ class Fajax{
     open(method,url){
         this.method=method;
         this.url=url;
-        this.onload;
     }
-    send(){
+    send(body){
+        console.log('body: ', body);
+        this.body=body;
         server(this);
+        this.onload();
     }
 }
-function chekuser(){
-    let y = new Fajax();
-    y.onload = function () {
-        
-        addNewuser(name,password)
-    }
-    y.open("GET", "my-server/api/users")
-    y.send();
-}
-function adduser(){
-    let y = new Fajax();
-    y.onload = function () {
-        
-        addNewuser(name,password)
-    }
-    y.open("POST", "my-server/api/addusers")
-    y.send({username:"c"});
-}
-function addcontact(){
 
-}
+

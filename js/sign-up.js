@@ -16,17 +16,27 @@ function signUp(event) {
         "password": password,
         "data":[]
     };
+
+     adduser(newUser, event);
+
         
-    sendtoserver(newUser, event);
+    // sendtoserver(newUser, event);
 }
 
-function sendtoserver(newUser, event) {
-    const userArray = JSON.parse(localStorage.getItem("users")) || [];
-    userArray.push(newUser);
-    localStorage.setItem("project3", JSON.stringify(userArray));
-    localStorage.setItem("currentUser",JSON.stringify(newUser));
-    app.nav(event);
-    console.log(userArray); 
-    localStorage.setItem("current-user",JSON.stringify(newUser))                                ;
+function adduser(user, event){
+    let y = new Fajax();
+    y.onload = function () {
+        console.log("hi");
+        // addNewuser(name,password)
+        localStorage.setItem("currentUser",JSON.stringify(user));//TODO
+        app.nav(event)
+    }
+    y.open("POST", "my-server/api/signUp")
+    y.send(user);
+    console.log('y: ', y);
     
+    console.log('user: ', user);
 }
+// function addcontact(){
+
+// }

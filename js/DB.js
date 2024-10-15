@@ -1,9 +1,14 @@
     function addcontact(name,phone){
         let obj={name,phone};
-        let arr=JSON.parse(localStorage.getItem("contact"));
-        obj.id=arrpeople.length+1;
+        let arr=JSON.parse(localStorage.getItem("contact")) ||[];
+        obj.id=arr.length+1;
         arr.push(obj);
         localStorage.setItem('contact',JSON.stringify(arr));
+        currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        currentUser.data.push(obj);
+        localStorage.setItem('currentUser', JSON.stringify(currentUser));
+
+
     }
     function removecontact(num){
         let arrship=JSON.parse(localStorage.getItem("contact"));
@@ -40,26 +45,21 @@
     
     
 //sign-up
-function addNewuser(name,password){
-    const savedUsers = JSON.parse(localStorage.project3);
-    console.log('savedUsers: ', savedUsers);
+function addNewuser(newUser){
+    const savedUsers = JSON.parse(localStorage.getItem("project3"))||[];
+    
+    const findUser = savedUsers.find((user)=>user.name === newUser.name );
+if(findUser){
+return "user exicted, change your name"
+}
+else{
+    
+    addid(newUser);
+    savedUsers.push(newUser)
+    localStorage.setItem("project3", JSON.stringify(savedUsers));
+    return {message:"Successd", newUser}
 
-//     let name = document.getElementById("name").value;
-// let password = document.getElementById("password").value;
-    const newUser = savedUsers.find((user)=>user.name === name && user.password === password);
-    console.log('newUser: ', newUser);
-
-        if (!newUser) {
-            let wrongPassParagraph = document.createElement("p");
-            wrongPassParagraph.innerText = "wrong password";
-            const existingUsersDiv = document.getElementById("myForm");
-            existingUsersDiv.appendChild(wrongPassParagraph);
-            console.log("if1")
-        }
-        else{
-            localStorage.setItem("currentUser",JSON.stringify(newUser));
-            app.nav(click);
-        }
+}
 }
     // chek if user exicted if not you have to add it 
     // function addNewuser(name,password){
@@ -81,7 +81,7 @@ function addNewuser(name,password){
     // }
 //add id to new user in sign up
 function addid(user){
-    let arr=JSON.parse(localStorage.getItem("users"));
+    let arr=JSON.parse(localStorage.getItem("users"))||[];
     user.id=arr.length;
 }
 

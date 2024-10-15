@@ -15,7 +15,6 @@
                 <input id="name"/>
                 <p>password:</p>
                 <input id="password"/>
-                <button data-target="detail" id="enterlog">enter</button>
                 <br><br>
             </div> -->
             <form id="existing-users">
@@ -23,8 +22,8 @@
                 <input type="text" id="name" name="new-name" ><br>
                 <label for="pass">Password:</label><br>
                 <input type="text" id="password" name="pass" >
-                <button data-target="detail" id="enterlog">Log in</button>
-              </form>
+            </form>
+            <button data-target="detail" id="enterlog">Log in</button>
               <br><br>
                 <!-- <li><a href="#" data-target="home" class="nav-link">log in</a></li> -->
                 <nav><a href="#" data-target="list" class="nav-link">sign up</a></nav>
@@ -38,7 +37,7 @@
                 <input type="text" id="new-name" name="new-name" ><br>
                 <label for="pass">Password:</label><br>
                 <input type="text" id="pass" name="pass" >
-                <button data-target="detail" id="enter-new-user">Sign up</button>
+                <button data-target="detail"   id="enter-new-user">Sign up</button>
               </form>
               <br><br>
                 <nav><a href="#" data-target="home" class="nav-link">log in</a></nav>
@@ -60,7 +59,7 @@
             
             <label for="phone">Phone number:</label>
             <input type="tel" id="phone" name="phone" required/><br><br>
-            <button id="save-contact" onclick="onClick(event)">Save Contact</button>
+            <button id="save-contact" data-target="detail"  onclick="onClick(event)">Save Contact</button>
         </div>
         </template>
         
@@ -78,5 +77,8 @@
     <script src="js/sign-up.js"></script>
     <script src="js/login.js"></script>
     <script src="js/contact.js"></script>
+    <script src="./js/ajax.js"></script>
+    <script src="./js/server.js"></script>
+    <script src="./js/DB.js"></script>
 </body>
 </html>
