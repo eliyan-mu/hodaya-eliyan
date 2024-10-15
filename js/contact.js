@@ -1,7 +1,9 @@
 var contactDisplay = document.getElementById('contact-display');
 
         // Function to display contacts
-        function displayContacts(contacts) {
+        function displayContacts() {
+            let user = JSON.parse(localStorage.getItem('currentUser'));
+            let contacts = user.data;
             contactDisplay.innerHTML = ''; // Clear existing display
             for (var i = 0; i < contacts.length; i++) {
                 var p = document.createElement('p');
@@ -16,47 +18,48 @@ var contactDisplay = document.getElementById('contact-display');
         container.appendChild(template.content.cloneNode(true));
        } 
 
-        // Array to hold contacts
 
-        // Save contact button event listener
+        
          function onClick(event) {
             event.preventDefault(); // Prevent form submission
             var name = document.getElementById('fname').value;
             var phone = document.getElementById('phone').value;
             document.getElementById("container").innerHTML = "";
-            console.log("ghjkl")
+
             if (name && phone) {
-                
-               let contacts = server({ name: name, phone: phone });
-                displayContacts(contacts); // Update the display
+                let y = new Fajax();
+                y.onload = function () {
+                    console.log("hi");
+                    // addNewuser(name,password)
+                    app.nav(event)
+            }
+            y.open("POST", "my-server/api/contact")
+            y.send({name: name, phone: phone});
+            displayContacts(); // Update the display
             }
            
         };
 
 
-        function server(newContact){
-        
-            const users = JSON.parse(localStorage.getItem("users")) || [];
-                const currentUser = JSON.parse(localStorage.getItem("current-user"));
-                currentUser.data.push(newContact);
-                console.log(users)
-                 const newUsers= users.map((user)=>{
-                console.log(user, currentUser)
-                if(user.name===currentUser.name){
-                    return currentUser;
-                }
-                return user;
-            })
-                localStorage.setItem("users",JSON.stringify(newUsers));
-                localStorage.setItem("current-user",JSON.stringify(currentUser));
-                return currentUser.data;
-                // localStorage.setItem(JSON.stringify(contacts));
+        // window.onload = function() {
+        //     const currentUser = JSON.parse(localStorage.getItem("current-user"));
+        //     if (currentUser && currentUser.data) {
+        //         displayContacts(currentUser.data);
+        //     }
+        // };
 
-        }
+        // function addcontact(user, event){
+        //     let y = new Fajax();
+        //     y.onload = function () {
+        //         console.log("hi");
+        //         // addNewuser(name,password)
+        //         localStorage.setItem("currentUser",JSON.stringify(user));//TODO
+        //         app.nav(event)
+        //     }
+        //     y.open("POST", "my-server/api/contact")
+        //     y.send(user);
+        //     console.log('y: ', y);
+            
+        //     console.log('user: ', user);
+        // }
 
-        window.onload = function() {
-            const currentUser = JSON.parse(localStorage.getItem("current-user"));
-            if (currentUser && currentUser.data) {
-                displayContacts(currentUser.data);
-            }
-        };
