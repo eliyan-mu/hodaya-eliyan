@@ -1,4 +1,3 @@
-
 const form = document.getElementById("myForm");
 const enterUser = document.getElementById("enter-new-user");
 enterUser.addEventListener("click", signUp);
